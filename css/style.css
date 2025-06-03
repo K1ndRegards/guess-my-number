@@ -1,0 +1,135 @@
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Press+Start+2P&display=swap');
+
+/* Custom Properties */
+:root {
+  --primary-color: #333;
+  --background-color: #222;
+  --light-color: #eee;
+}
+
+/* Utilities */
+
+.btn {
+  border: none;
+  padding: 20px 30px;
+  background-color: var(--light-color);
+  cursor: pointer;
+  font-size: 2rem;
+  font-family: inherit;
+
+  &:hover {
+    background-color: #ccc;
+  }
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* General Styling */
+body {
+  font-family: 'Press Start 2P', sans-serif;
+  background-color: var(--background-color);
+  color: var(--light-color);
+}
+
+body.win-bg {
+  background-color: #60b347;
+}
+
+body.lose-bg {
+  background-color: #b34747;
+}
+
+/* Page Styling */
+/* Header */
+header.main-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+header.main-header p {
+  font-size: 1.4rem;
+}
+
+/* Hero Section */
+section.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.hero h1 {
+  margin: 40px 0;
+  font-size: 4rem;
+}
+
+section.hero p.answer-field {
+  z-index: 1;
+  margin-top: 30px;
+  padding: 30px 45px;
+  background-color: var(--light-color);
+  color: #333;
+  font-size: 6rem;
+}
+
+/* Horizontal line */
+body::before {
+  content: '';
+  z-index: 0;
+  position: absolute;
+  top: 305px;
+  width: 100vw;
+  height: 8px;
+  background-color: var(--light-color);
+}
+
+/* Game Field */
+section.game-field {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 150px;
+  padding: 0 40px;
+}
+
+/* left side */
+section.game-field .input-field .form-group input {
+  border: 4px solid var(--light-color);
+  padding: 25px 40px;
+  width: 250px;
+  background-color: transparent;
+  color: var(--light-color);
+  font-size: 5rem;
+  font-family: inherit;
+  text-align: center;
+}
+
+section.game-field .input-field form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+}
+
+/* right side */
+section.game-field .info-field p {
+  min-width: 450px;
+  font-size: 2rem;
+}
+
+section.game-field .info-field .game-info {
+  margin-bottom: 100px;
+}
+
+section.game-field .info-field .current-score {
+  margin-bottom: 30px;
+}
