@@ -1,3 +1,7 @@
+// Todos:
+// 1. Create settings menu, where you can chose guessing ranges.
+// 2. Mobile responsiveness
+
 let randomNumber;
 let gameEnded = false;
 let minNum = 1,
