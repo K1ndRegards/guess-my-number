@@ -73,6 +73,7 @@ function checkUserInput() {
 
   if (value === '') {
     gameInfo.innerText = '⛔️ No number!';
+    return;
   }
 
   let score = getScore();
