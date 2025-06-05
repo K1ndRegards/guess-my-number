@@ -2,10 +2,11 @@
 // 1. Create settings menu, where you can chose guessing ranges.
 // 2. Mobile responsiveness
 
-let randomNumber;
-let gameEnded = false;
 let minNum = 1,
   maxNum = 20;
+
+let randomNumber;
+let gameEnded = false;
 
 const againButton = document.querySelector('.main-header button');
 const checkButton = document.querySelector('button[type="submit"]');
@@ -33,6 +34,7 @@ function initiateRestart() {
 
   answerField.innerText = '?';
   gameInfo.innerText = 'Start guessing...';
+  guessInput.value = '';
 
   updateScore(20);
 }
@@ -41,15 +43,15 @@ function initiateWin() {
   gameEnded = true;
   gameInfo.innerText = '🎉 Correct Number!';
   document.body.classList.toggle('win-bg');
-  answerField.innerText = String(randomNumber);
+  answerField.innerText = randomNumber;
   updateHighscore();
 }
 
-function initiateLose() {
+function initiateLoss() {
   gameEnded = true;
   gameInfo.innerText = '💥 You lost the game!';
   document.body.classList.toggle('lose-bg');
-  answerField.innerText = String(randomNumber);
+  answerField.innerText = randomNumber;
 }
 
 function getScore() {
@@ -69,13 +71,14 @@ function updateScore(score) {
 }
 
 function checkUserInput() {
-  const value = guessInput.value;
+  let value = guessInput.value;
 
   if (value === '') {
     gameInfo.innerText = '⛔️ No number!';
     return;
   }
 
+  value = Number(value);
   let score = getScore();
 
   if (score > 1) {
@@ -90,21 +93,19 @@ function checkUserInput() {
     updateScore(--score);
   } else {
     updateScore(--score);
-    initiateLose();
+    initiateLoss();
   }
 }
+
+generateRandomNumber();
 
 againButton.addEventListener('click', initiateRestart);
 
 checkButton.addEventListener('click', function (e) {
   e.preventDefault();
 
-  if (randomNumber === undefined) {
-    generateRandomNumber();
-  } else if (gameEnded) {
+  if (gameEnded) {
     return;
   }
   checkUserInput();
 });
-
-console.log(getScore());
