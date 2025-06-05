@@ -1,6 +1,7 @@
 // Todos:
 // 1. Create settings menu, where you can chose guessing ranges.
 // 2. Mobile responsiveness
+// 3. Save the highscore to the local storage
 
 let minNum = 1,
   maxNum = 20;
